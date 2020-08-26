@@ -62,6 +62,9 @@ var quiz = new Quiz(questions);
 function populate() {
   if (quiz.isEnded()) {
     showScores();
+     document.getElementById("btn").addEventListener("click", () => {
+      window.location = "/";
+    });
   } else {
     //populate the ui with text
     var paraText = document.getElementById("text");
@@ -90,7 +93,8 @@ function guess(id, guess) {
 
 function showScores() {
   var gameOverHtml = "<h1>Result</h1>";
-  gameOverHtml += "<h2> Your Score: " + quiz.score + "</h2>";
+  gameOverHtml += `<h2> Your Score:  ${quiz.score}  </h2>
+                    <button id="btn">Click To Restart</button>`;
   var quizContainer = document.querySelector(".container");
   quizContainer.innerHTML = gameOverHtml;
 }
